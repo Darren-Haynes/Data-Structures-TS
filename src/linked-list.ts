@@ -42,6 +42,22 @@ class LinkedList<T> {
     }
   }
 
+  public popHead(): T | undefined {
+    if (!this.head) return undefined;
+    const data = this.head.data;
+    this.head = this.head.next;
+    if (this.head) this.head.prev = null;
+    return data;
+  }
+
+  public popTail(): T | undefined {
+    if (!this.tail) return undefined;
+    const data = this.tail.data;
+    this.tail = this.tail.prev;
+    if (this.tail) this.tail.next = null;
+    return data;
+  }
+
   public print(): void {
     let current = this.head;
     while (current) {
@@ -50,9 +66,3 @@ class LinkedList<T> {
     }
   }
 }
-
-const ll = new LinkedList<number>();
-for (let i = 0; i < 5; i++) {
-  ll.pushTail(i);
-}
-ll.print();
