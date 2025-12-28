@@ -29,6 +29,19 @@ class LinkedList<T> {
       this.head = newNode;
     }
   }
+
+  public pushTail(data: T) {
+    const newNode = new ListNode(data);
+    if (!this.tail) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.prev = this.tail;
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+  }
+
   public print(): void {
     let current = this.head;
     while (current) {
@@ -37,3 +50,9 @@ class LinkedList<T> {
     }
   }
 }
+
+const ll = new LinkedList<number>();
+for (let i = 0; i < 5; i++) {
+  ll.pushTail(i);
+}
+ll.print();
