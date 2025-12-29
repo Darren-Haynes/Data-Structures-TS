@@ -1,5 +1,16 @@
 {
+  "name": "typescript-ds",
+  "version": "1.0.0",
+  "description": "Datastructers in TS",
+  "license": "MIT",
+  "author": "Darren Haynes",
+  "type": "commonjs",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
+    "@types/node": "^25.0.3",
     "typescript": "^5.9.3"
   }
 }
