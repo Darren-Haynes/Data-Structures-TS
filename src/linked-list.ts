@@ -12,14 +12,17 @@ class ListNode<T> {
 class LinkedList<T> {
   private head: ListNode<T> | null = null;
   private tail: ListNode<T> | null = null;
+  public length: number;
 
   constructor() {
     this.head = null;
     this.tail = null;
+    this.length = 0;
   }
 
   public pushHead(data: T) {
     const newNode = new ListNode(data);
+    this.length++;
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -32,6 +35,7 @@ class LinkedList<T> {
 
   public pushTail(data: T) {
     const newNode = new ListNode(data);
+    this.length++;
     if (!this.tail) {
       this.head = newNode;
       this.tail = newNode;
@@ -44,6 +48,7 @@ class LinkedList<T> {
 
   public popHead(): T | undefined {
     if (!this.head) return undefined;
+    this.length--;
     const data = this.head.data;
     this.head = this.head.next;
     if (this.head) this.head.prev = null;
@@ -52,6 +57,7 @@ class LinkedList<T> {
 
   public popTail(): T | undefined {
     if (!this.tail) return undefined;
+    this.length--;
     const data = this.tail.data;
     this.tail = this.tail.prev;
     if (this.tail) this.tail.next = null;
@@ -66,3 +72,10 @@ class LinkedList<T> {
     }
   }
 }
+
+const linkedList = new LinkedList<number>();
+for (let i = 0; i < 10; i++) {
+  linkedList.pushTail(i);
+}
+linkedList.popHead();
+console.log(linkedList.length);
