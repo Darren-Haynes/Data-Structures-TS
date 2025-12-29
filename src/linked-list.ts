@@ -1,4 +1,4 @@
-class ListNode<T> {
+export class ListNode<T> {
   public data: T;
   public next: ListNode<T> | null = null;
   public prev: ListNode<T> | null = null;
@@ -72,10 +72,3 @@ class LinkedList<T> {
     }
   }
 }
-
-const linkedList = new LinkedList<number>();
-for (let i = 0; i < 10; i++) {
-  linkedList.pushTail(i);
-}
-linkedList.popHead();
-console.log(linkedList.length);
