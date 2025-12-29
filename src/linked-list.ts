@@ -5,7 +5,6 @@ export class ListNode<T> {
 
   constructor(data: T) {
     this.data = data;
-    this.next = null;
   }
 }
 
@@ -72,3 +71,6 @@ class LinkedList<T> {
     }
   }
 }
+
+const n = new ListNode(1);
+console.log(n);
