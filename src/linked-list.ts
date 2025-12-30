@@ -8,9 +8,9 @@ export class ListNode<T> {
   }
 }
 
-class LinkedList<T> {
-  private head: ListNode<T> | null = null;
-  private tail: ListNode<T> | null = null;
+export class LinkedList<T> {
+  public head: ListNode<T> | null = null;
+  public tail: ListNode<T> | null = null;
   public length: number;
 
   constructor() {
@@ -64,13 +64,12 @@ class LinkedList<T> {
   }
 
   public print(): void {
+    let string = "";
     let current = this.head;
     while (current) {
-      console.log(current.data);
+      string += current.data + " ";
       current = current.next;
     }
+    console.log(string.slice(0, -1));
   }
 }
-
-const n = new ListNode(1);
-console.log(n);
