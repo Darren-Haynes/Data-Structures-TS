@@ -60,6 +60,13 @@ test("popHead method with single entry LinkedList", () => {
   expect(ll.popHead()).toBe(1);
 });
 
+test("popHead method with double entry LinkedList", () => {
+  const ll = new LinkedList();
+  ll.pushHead(1);
+  ll.pushHead(2);
+  expect(ll.popHead()).toBe(2);
+});
+
 test("popTail method with empty LinkedList", () => {
   const ll = new LinkedList();
   expect(ll.popTail()).toBe(undefined);
@@ -69,6 +76,13 @@ test("popTail method with single entry LinkedList", () => {
   const ll = new LinkedList();
   ll.pushTail(1);
   expect(ll.popTail()).toBe(1);
+});
+
+test("popTail method with double entry LinkedList", () => {
+  const ll = new LinkedList();
+  ll.pushTail(1);
+  ll.pushTail(2);
+  expect(ll.popTail()).toBe(2);
 });
 
 test("print empty LinkedList", () => {
