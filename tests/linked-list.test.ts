@@ -99,3 +99,72 @@ test("print LinkedList with single value", () => {
   ll.print();
   expect(consoleLogSpy).toHaveBeenCalledWith("1");
 });
+
+test("Reverse LinkedList with no entries doesn't change list", () => {
+  const ll = new LinkedList();
+  ll.reverse();
+  expect(ll.head).toBe(null);
+});
+
+test("Reverse LinkedList with no entries returns false", () => {
+  const ll = new LinkedList();
+  expect(ll.reverse()).toBe(false);
+});
+
+test("LinkedList with single entry doesn't change list", () => {
+  const ll = new LinkedList();
+  ll.pushHead(1);
+  ll.reverse();
+  expect(ll.head.data).toBe(1);
+});
+
+test("LinkedList with single entry returns false", () => {
+  const ll = new LinkedList();
+  ll.pushHead(1);
+  expect(ll.reverse()).toBe(false);
+});
+
+test("LinkedList with double entry list is reversed", () => {
+  const ll = new LinkedList();
+  ll.pushHead(1);
+  ll.pushHead(2);
+  const before = ll.stringify();
+  ll.reverse();
+  expect(ll.stringify()).toBe("1 2");
+});
+
+test("LinkedList with triple entry list is reversed", () => {
+  const ll = new LinkedList();
+  ll.pushHead(1);
+  ll.pushHead(2);
+  ll.pushHead(3);
+  const before = ll.stringify();
+  ll.reverse();
+  expect(ll.stringify()).toBe("1 2 3");
+});
+
+test("LinkedList stringify with no entries", () => {
+  const ll = new LinkedList();
+  expect(ll.stringify()).toBe("");
+});
+
+test("LinkedList stringify with single entry", () => {
+  const ll = new LinkedList();
+  ll.pushTail(1);
+  expect(ll.stringify()).toBe("1");
+});
+
+test("LinkedList stringify with double entry", () => {
+  const ll = new LinkedList();
+  ll.pushTail(1);
+  ll.pushHead(2);
+  expect(ll.stringify()).toBe("2 1");
+});
+
+test("LinkedList stringify with triple entry", () => {
+  const ll = new LinkedList();
+  ll.pushTail(1);
+  ll.pushHead(2);
+  ll.pushHead(3);
+  expect(ll.stringify()).toBe("3 2 1");
+});
