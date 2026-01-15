@@ -15,7 +15,11 @@ export class BST<T> {
     this.head = null;
   }
 
-  private _insert(curr: BstNode, new_node: BstNode, data: T): T {
+  private _insert(curr: BstNode, new_node: BstNode, data: any): T {
+    if (data === curr.data) {
+      return null;
+    }
+
     if (data < curr.data) {
       if (curr.left === null) {
         curr.left = new_node;
@@ -24,6 +28,7 @@ export class BST<T> {
         return this._insert(curr.left, new_node, data);
       }
     }
+
     if (data > curr.data) {
       if (curr.right === null) {
         curr.right = new_node;

@@ -70,6 +70,12 @@ test("insert 7 nodes has correct head, right and left nodes", () => {
   expect(bst.head.right.data).toBe(15);
   expect(bst.head.left.left.data).toBe(3);
   expect(bst.head.left.right.data).toBe(7);
-  // expect(bst.head.right.left.data).toBe(12);
+  expect(bst.head.right.left.data).toBe(12);
   expect(bst.head.right.right.data).toBe(20);
+});
+
+test("insert 2 nodes with same data returns null", () => {
+  const bst = new BST();
+  bst.insert(10);
+  expect(bst.insert(10)).toBe(null);
 });
