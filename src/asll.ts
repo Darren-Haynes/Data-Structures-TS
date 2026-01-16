@@ -9,3 +9,15 @@ export class ASLLNode {
     this.data = data;
   }
 }
+
+export class ASLL {
+  public head: ASLLNode | null = null;
+  public tail: ASLLNode | null = null;
+  public length: number;
+
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+}

@@ -1,4 +1,4 @@
-import { ASLLNode } from "../src/asll.ts";
+import { ASLL, ASLLNode } from "../src/asll.ts";
 
 test("Node initiates with num & data", () => {
   const node = new ASLLNode(1, "a");
@@ -6,4 +6,9 @@ test("Node initiates with num & data", () => {
   expect(node.data).toBe("a");
   expect(node.next).toBe(null);
   expect(node.prev).toBe(null);
+});
+
+test("ASLL List Object", () => {
+  const ll = new ASLL();
+  expect(ll).toEqual({ head: null, tail: null, length: 0 });
 });
